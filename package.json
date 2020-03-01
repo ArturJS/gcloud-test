@@ -1,0 +1,45 @@
+{
+  "name": "gcloud-run-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -c .eslintrc '{src,scripts,local_modules}/**/*.{js,jsx,mjs}'",
+    "precommit": "npx lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArturJS/gcloud-run-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArturJS/gcloud-run-test/issues"
+  },
+  "homepage": "https://github.com/ArturJS/gcloud-run-test#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "ws": "^7.2.1"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "{src,scripts,local_modules}/**/*.{js,jsx,mjs}": [
+        "prettier --write",
+        "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "npm run precommit"
+    }
+  }
+}
